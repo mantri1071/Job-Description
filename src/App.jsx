@@ -14,6 +14,7 @@ function App() {
     yearsOfExperience: '',
     jobType: '',
     requiredSkills: '',
+    industry: '',
   });
 
   const [jobDescription, setJobDescription] = useState('');
@@ -39,9 +40,9 @@ function App() {
     try {
       const jobPayload = {
         org_id: 1,
-        exe_name: 'run 1',
+        exe_name: 'run1',
         workflow_id: 'jd_maker',
-        instraction: `Looking for ${data.requiredSkills} developer with ${data.yearsOfExperience} years of experience for a ${data.jobType} role.`,
+        instraction: `Looking for ${data.requiredSkills}skill with ${data.yearsOfExperience} years of experience for a ${data.jobType} role in ${data.industry} domain.`,
       };
 
       console.log('📤 Final Payload:', jobPayload);
@@ -163,8 +164,8 @@ function App() {
             <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
               <span className="text-blue font-bold">T</span>
             </div>
-            <span className="text-2xl font-serif font-bold text-gray-100">Talent</span>
-            <span className="text-2xl font-sans font-extrabold text-gray-100">Sift</span>
+            <span className="text-2xl font-serif font-bold text-gray-800">Talent</span>
+            <span className="text-2xl font-sans font-extrabold text-gray-500">Sift</span>
           </div>
         </div>
 

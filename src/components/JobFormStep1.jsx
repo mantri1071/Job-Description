@@ -36,6 +36,7 @@ const FloatingIcon = ({ children, className }) => (
     if (!formData.jobTitle) newErrors.jobTitle = 'Job Title is required';
     if (!formData.jobType) newErrors.jobType = 'Job Type is required';
     if (!formData.requiredSkills) newErrors.requiredSkills = 'Please enter one or more skills';
+    if (!formData.industry) newErrors.industry = 'Industry is required';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -93,11 +94,11 @@ const FloatingIcon = ({ children, className }) => (
                 className="w-full"
               >
                 <div className="mb-2 text-left">
-                  <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight text-white drop-shadow-md">
+                  <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight text-orange-400 drop-shadow-md">
                     AI Generated <br />
                     <span className="text-black">Job Description</span>
                   </h1>
-                  <p className="mt-4 text-lg text-white/80 max-w-xl">
+                  <p className="mt-4 text-lg text-gray-500 max-w-xl">
                     Built with AI. Designed for Recruiters.
                   </p>
                 </div>
@@ -196,7 +197,26 @@ const FloatingIcon = ({ children, className }) => (
                         <p className="text-red-600 text-sm">{errors.requiredSkills}</p>
                       )}
                     </div>
-                  </div>
+                    </div>
+                    
+                    {/* Industry */}
+                      <div className="space-y-2">
+                      <Label className="flex items-center gap-2">
+                        <GraduationCap className="w-4 h-4" />
+                        Industry <span className="text-red-500">*</span>
+                      </Label>
+                      <Input
+                        placeholder="e.g. Information Technology, Marketing"
+                        value={formData.industry}
+                        onChange={(e) => handleInputChange('industry', e.target.value)}
+                        className="bg-white/70"
+                        disabled={isLoading}
+                      />
+                      {errors.industry && (
+                        <p className="text-red-600 text-sm">{errors.industry}</p>
+                      )}
+                    </div>
+
 
                   {/* Submit Button */}
                   <Button
