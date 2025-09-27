@@ -112,7 +112,7 @@ function App() {
     setFormData(prev => ({
       ...prev,
       requiredSkills: decodeSafe(params.get('skills') || ''),
-      yearsOfExperience: decodeSafe(params.get('experience') || ''),
+      yearsOfExperience: decodeSafe(params.get('yoe') || ''),
       jobTitle: decodeSafe(params.get('title') || ''),
       jobType: mappedJobType,  // THIS MUST BE a valid option value or empty string
       industry: decodeSafe(params.get('industry') || ''),
